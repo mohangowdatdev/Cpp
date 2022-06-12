@@ -25,4 +25,4 @@ Made with 💖 by ᴍɢ
 
 
 ![mg tRANSPARENT LOGO](codefiles/White-Transparent-Logo.png)
-![mg tRANSPARENT LOGO](codefiles/Black-Transparent-Logo.png)
+
