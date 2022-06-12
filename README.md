@@ -19,5 +19,10 @@ Ill try my best to document readme as neat as possible along with questions outp
 
 
 ---
->𝗠σԋαɳ 𝗚σɯԃα 𝗧
->[Website🌐](htttps://kutt.it/mohangowdat)
+>𝗠σԋαɳ 𝗚σɯԃα 𝗧 <br>
+Made with 💖 by ᴍɢ
+
+
+
+![mg tRANSPARENT LOGO](codefiles/White-Transparent-Logo.png)
+![mg tRANSPARENT LOGO](codefiles/Black-Transparent-Logo.png)
