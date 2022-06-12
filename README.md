@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CPP Codes for beginners 😎 
 ---
 I started c++ long ago when i was in my class 11th and 12th. But i was restricted to bookish knowledge coz i was never really interested in coding. But slowly things started to change. I heard a lot of competitive progrAmming and finding joBs from cpp etc...
