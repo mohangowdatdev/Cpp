@@ -1,6 +1,8 @@
 
 # CPP Codes for beginners 😎 
 ---
+![CPP BANNER](https://servreality.com/wp-content/uploads/2020/07/C-Development-Banner.jpg)
+---
 I started c++ long ago when i was in my class 11th and 12th. But i was restricted to bookish knowledge coz i was never really interested in coding. But slowly things started to change. I heard a lot of competitive progrAmming and finding joBs from cpp etc...
 But trust me i never even expected that it would form my life one day.
 
