@@ -7,7 +7,7 @@ int main(){
     cin>>n;
      cout<<"The Prime Numbers are ..."<<endl;
     for(int i=2;i<=n;i++)
-    {
+    { 
         isprime = 1;
         for(int div=2;div<i;div++)
             if(i%div==0)
