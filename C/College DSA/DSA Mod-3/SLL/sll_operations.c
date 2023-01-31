@@ -102,7 +102,7 @@ void insertPos()
     printf("Element to be Inserted : ");
     scanf("%d", &temp->info);
     temp->next = NULL;
-    printf("Position for Element (1I): ");
+    printf("Position for Element : ");
     scanf("%d", &pos);
     if(pos==1)
     {
@@ -190,7 +190,7 @@ void deletePos()
         printf("Empty List!!");
         return;
     }
-    printf("Position for Element to be deleted (0I) : ");
+    printf("Position for Element to be deleted : ");
     scanf("%d", &pos);
     if (pos==1)
     {
@@ -202,7 +202,7 @@ void deletePos()
     else
     {
         ptr = start;
-        for (int i = 0; i < pos; i++)
+        for (int i = 1; i < pos; i++)
         {
             temp = ptr;
             ptr = ptr->next;
@@ -292,21 +292,14 @@ void deleteSort()
     } 
     if (temp == NULL) 
     {
-        printf("Key Not Found !! \n");
+        printf("Element Not Found !! \n");
         return;
     }
-    if(flag==0)
-    {
-        prev->next = temp->next;
-        free(temp);
-        return;
-    }
-    if(flag == 1)
-    {
-        printf("Key Deleted !! \n");
-        return;
-    }
+    prev->next = temp->next;
+    free(temp);
+    printf("Element %d has been deleted. \n", key);
     display();
+    return;
 }
 
 // Searching an element
@@ -398,7 +391,13 @@ void main()
     while(1)
     {
         printf("\n--------------------------- \n");
-        printf("Available operations are: \n 0. [ EXIT ] \n 1. Display \n 2. Insert Rare \n 3. Insert Front \n 4. Insert Position \n 5. Delete Rare \n 6. Delete Front \n 7. Delete Position \n 8. Sorting \n 9. Insert Sorted \n 10. Delete Sorted \n 11. Searching \n 12. Concatenation \n 13. Traversing \n");
+        printf("Available operations are: \n 0. [ EXIT ] \n");
+        printf(" 1. Display \n 2. Insert Rare \n 3. Insert Front \n");
+        printf(" 4. Insert Position \n 5. Delete Rare \n 6. Delete Front \n");
+        printf(" 7. Delete Position \n 8. Sorting \n 9. Insert Sorted \n");
+        printf(" 10. Delete Sorted \n 11. Searching \n");
+        printf(" 12. Concatenation \n 13. Traversing \n");
+        printf("---------------------------\n");
         printf("Enter your choice - ");
         scanf("%d", &choice);
         printf("\n--------------------------- \n");
