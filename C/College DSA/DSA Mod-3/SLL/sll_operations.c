@@ -451,3 +451,5 @@ void main()
         }
     }
 }
+
+// c code to print hi

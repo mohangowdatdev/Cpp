@@ -1,13 +1,15 @@
 // Importing required libraries.
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
 class login_system
 {
 public:
-    int main_login_system()
+    int main_login_screen()
     {
+
         char id[20], pass[20];
         cout << "\n\n-------------------------------------------------" << endl;
         cout << "****** | E-CORP Enterprises pvt ltd 2023 | ******" << endl;
