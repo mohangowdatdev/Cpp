@@ -141,6 +141,7 @@ int main()
             return 0;
         default:
             cout << "Invalid choice Please make a valid choice." << endl;
+            Sleep(3000);
             break;
         }
     }
