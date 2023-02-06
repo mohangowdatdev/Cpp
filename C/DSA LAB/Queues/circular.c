@@ -1,4 +1,4 @@
-// Linear Queues Program
+// Circular Queues Program
 
 #include<stdio.h>
 #include<stdlib.h>
