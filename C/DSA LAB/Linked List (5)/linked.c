@@ -138,6 +138,18 @@ void secondle()
 
 void concatenate()
 {
+    int n3,n2;
+    if(front==NULL)
+    {
+        printf("Enter number of first list elements:");
+        scanf("%d",&n3);
+        for(int i=0;i<n3;i++)
+            insertrear();
+    }
+    printf("Enter the number of students for second list:");
+    scanf("%d",&n2);
+    for(int i=0;i<n2;i++)
+        secondle();
     Node *temp=front;
 
     while(temp->next!=NULL)
@@ -191,7 +203,7 @@ void queueoperation()
 }
 int main()
 {
-	int choice,n2;
+	int choice;
 	while(1)
 	{
 		front2=NULL;
@@ -206,10 +218,7 @@ int main()
                 break;
 			case 3: search();
 				break;
-            case 4: printf("Enter the number of students for second list:");
-                    scanf("%d",&n2);
-                    for(int i=0;i<n2;i++)
-                      secondle();
+            case 4:
                     concatenate();
                 break;
             case 5:display();
@@ -222,7 +231,3 @@ int main()
 	}
 	return 0;
 }
-
-
-
-
