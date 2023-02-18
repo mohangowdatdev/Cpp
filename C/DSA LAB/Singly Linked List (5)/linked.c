@@ -186,7 +186,7 @@ void queueoperation()
     int choice;
     while(1)
     {
-        printf("queue menu:\n1.Insertrear\2.deletefront\n3.Display\n4.return to main menu\n");
+        printf("queue menu:\n1.Insertrear\n2.deletefront\n3.Display\n4.return to main menu\n");
         printf("Choice?:");
         scanf("%d",&choice);
         switch(choice)

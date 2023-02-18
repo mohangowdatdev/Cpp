@@ -1,58 +1,23 @@
 // All works just beautification pending :D
 
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <windows.h>
+#include <iostream>  // Basic IO
+#include <fstream>   // File handling
+#include <vector>    // Vector data type
+#include <windows.h> // Sleep
 
 using namespace std;
 
+// Vector data type
 vector<string> taskList;
 const string fileName = "tasks.txt";
 
-void addTask()
-{
-    cout << "----------------------------" << endl;
-    string task;
-    cout << "Task : ";
-    cin.ignore();
-    getline(cin, task);
-    taskList.push_back(task);
-    cout << endl;
-    cout << "Task added. ✓" << endl;
-    cout << "----------------------------" << endl;
-    cout << endl;
-    Sleep(3000);
-}
-
-void deleteTask()
-{
-    cout << endl;
-    cout << "----------------------------" << endl;
-    int taskNumber;
-    cout << "Enter task number: ";
-    cin >> taskNumber;
-    taskNumber--;
-    if (taskNumber >= 0 && taskNumber < taskList.size())
-    {
-        taskList.erase(taskList.begin() + taskNumber);
-        cout << "Task deleted. ✗" << endl;
-    }
-    else
-    {
-        cout << "Invalid task number." << endl;
-    }
-    cout << "----------------------------" << endl;
-    cout << endl;
-    Sleep(3000);
-}
-
+// Used to list all Tasks
 void listTasks()
 {
     cout << endl;
     cout << "----------------------------" << endl;
     cout << "Tasks:" << endl;
-    cout << "-----------" << endl;
+    cout << "------" << endl;
     for (int i = 0; i < taskList.size(); i++)
     {
         cout << i + 1 << ". " << taskList[i] << endl;
@@ -64,6 +29,56 @@ void listTasks()
     cin.ignore();
 }
 
+// Used to add more tasks onto the list
+void addTask()
+{
+    cout << "----------------------------" << endl;
+    string task;
+    cout << "Task : ";
+    cin.ignore();
+    getline(cin, task);
+    taskList.push_back(task);
+    cout << endl;
+    cout << "Task added." << endl;
+    cout << "----------------------------" << endl;
+    cout << endl;
+    Sleep(3000);
+}
+
+// Used to delete any finished task
+void deleteTask()
+{
+    cout << endl;
+    cout << "----------------------------" << endl;
+    cout << "Tasks:" << endl;
+    cout << "------" << endl;
+    for (int i = 0; i < taskList.size(); i++)
+    {
+        cout << i + 1 << ". " << taskList[i] << endl;
+    }
+    cout << endl;
+    cout << "----------------------------" << endl;
+    int taskNumber;
+    cout << "Enter task number: ";
+    cin >> taskNumber;
+    taskNumber--;
+    if (taskNumber >= 0 && taskNumber < taskList.size())
+    {
+        taskList.erase(taskList.begin() + taskNumber);
+        cout << endl;
+        cout << "Task deleted." << endl;
+    }
+    else
+    {
+        cout << endl;
+        cout << "Invalid task number." << endl;
+    }
+    cout << "----------------------------" << endl;
+    cout << endl;
+    Sleep(3000);
+}
+
+// Used to clear the entire task list
 void clearTasks()
 {
     taskList.clear();
@@ -74,6 +89,7 @@ void clearTasks()
     cout << endl;
 }
 
+// On starting of execution loads all tasks from file
 void loadTasks() // Reads existing tasks from file
 {
     ifstream file(fileName.c_str());
@@ -88,6 +104,7 @@ void loadTasks() // Reads existing tasks from file
     }
 }
 
+// Used to store all tasks onto file on program execution
 void saveTasks() // Writes new tasks onto the file
 {
     ofstream file(fileName.c_str());
@@ -99,8 +116,13 @@ void saveTasks() // Writes new tasks onto the file
         }
         file.close();
     }
+    cout << endl;
+    cout << "Tasks Updated :) " << endl;
+    Sleep(3000);
+    system("cls");
 }
 
+// Main function
 int main()
 {
     loadTasks();
