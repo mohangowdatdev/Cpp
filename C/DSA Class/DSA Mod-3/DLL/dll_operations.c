@@ -5,7 +5,7 @@
 
 typedef struct node
 {
-    char id[20], name[20], branch[20], special[20];
+    int data;
     struct node *next;
     struct node *prev;
 }Node;
@@ -15,15 +15,8 @@ Node *front=NULL;
 Node* tempcreate()
 {
     Node *temp = (Node *)malloc(sizeof(Node));
-    printf("Enter Professor Details : \n");
-    printf("ID : ");
-    scanf("%s", temp->id);
-    printf("Name : ");
-    scanf("%s", temp->name);
-    printf("Branch : ");
-    scanf("%s", temp->branch);
-    printf("Specialisation : ");
-    scanf("%s", temp->special);
+    printf("Enter Number : ");
+    scanf("%d", &temp->data);
     temp->next = NULL;
     temp->prev = NULL;
     return temp;
@@ -39,15 +32,13 @@ void display()
         return;
     }
     printf("\n");
-    printf("ID\tNAME\tBRANCH\tSPECIALISATION\t\n");
+    printf("List Elements are : \n");
     while(temp!=NULL)
     {
-        printf("%s\t%s\t%s\t%s\t\n",temp->id,temp->name,temp->branch,temp->special);
+        printf("%d\t",temp->data);
         temp = temp->next;
         count++;
     }
-    printf("\n");
-    printf("Number of Nodes = %d\n", count);
 }
 
 void insertfront()
@@ -59,19 +50,19 @@ void insertfront()
 
 void insertrear()
 {
-    Node *last = front;
+    Node *ptr = front;
     Node *temp = tempcreate();
     if(front == NULL)
     {
         front = temp;
         return;
     }
-    while(last->next != NULL)
+    while(ptr->next != NULL)
     {
-        last = last->next;
+        ptr = ptr->next;
     }
-    last->next = temp;
-    temp->prev = last;
+    ptr->next = temp;
+    temp->prev = ptr;
 }
 
 void deletefront()
@@ -87,50 +78,21 @@ void deletefront()
     free(ptr);
 }
 
-void stack()
+void deleterear()
 {
-    int choice;
-    while(1)
+    Node *ptr = front, *temp;
+    if(front==NULL)
     {
-        printf("-----------------------------\n");
-        printf("Stack Operations Supported : \n");
-        printf("1. PUSH \n2. POP \n3. Display \n4. MainMenu \n");
-        printf("--------------\n");
-        printf("Enter Choice : ");
-        scanf("%d", &choice);
-        printf("--------------\n");
-        switch(choice)
-        {
-            case 1: insertfront(); break;
-            case 2: deletefront(); break;
-            case 3: display(); break;
-            case 4: return; 
-            default : printf("Invalid Choice !!\n"); break;
-        }
+        printf("EMPTY LIST!!\n");
+        return;
     }
-}
-
-void queue()
-{
-    int choice;
-    while(1)
+    while(ptr->next != NULL)
     {
-        printf("-----------------------------\n");
-        printf("Queue Operations Supported : \n");
-        printf("1. Insert \n2. Delete \n3. Display \n4. MainMenu \n");
-        printf("--------------\n");
-        printf("Enter Choice : ");
-        scanf("%d", &choice);
-        printf("--------------\n");
-        switch(choice)
-        {
-            case 1: insertrear(); break;
-            case 2: deletefront(); break;
-            case 3: display(); break;
-            case 4: return; 
-            default : printf("Invalid Choice !!\n"); break;
-        }
+        temp = ptr;
+        ptr = ptr->next;
     }
+    free(ptr);
+    temp->next = NULL;
 }
 
 void main()
@@ -138,19 +100,22 @@ void main()
     int choice;
     while(1)
     {
-        printf("-----------------------------\n");
-        printf("What do you want to do ? \n");
-        printf("1. Stack \n2. Queue \n3. Display \n4. Exit \n");
-        printf("--------------\n");
-        printf("Enter Choice : ");
+        printf("\n--------------------------- \n");
+        printf("Available operations are: \n 0. [ EXIT ] \n");
+        printf(" 1. Display \n 2. Insert Front \n 3. Insert Rear \n");
+        printf(" 4. Delete Front \n 5. Delete Rear \n");
+        printf("---------------------------\n");
+        printf("Enter your choice - ");
         scanf("%d", &choice);
-        printf("--------------\n");
+        printf("\n--------------------------- \n");
         switch(choice)
         {
-            case 1: stack(); break;
-            case 2: queue(); break;
-            case 3: display(); break;
-            case 4: exit(0); 
+            case 0: exit(0);
+            case 1: display(); break;
+            case 2: insertfront(); break;
+            case 3: insertrear(); break;
+            case 4: deletefront(); break; 
+            case 5: deleterear(); break;
             default : printf("Invalid Choice !!\n"); break;
         }
     }
