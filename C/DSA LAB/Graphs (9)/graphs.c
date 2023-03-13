@@ -4,9 +4,9 @@ int a[10][10], n, m, i, j, source, s[10], vis[10], visited[10], count;
 
 void create()
 {
-        printf("\nEnter the number of vertices of the digraph: ");
+        printf("\nNumber of Vertices : ");
         scanf("%d", &n);
-        printf("\nEnter the adjacency matrix of the graph:\n");
+        printf("\nAdjacency matrix :\n");
         for (i = 1; i <= n; i++)
         {
                 vis[i] = 0;
@@ -21,11 +21,11 @@ void create()
 void bfs()
 {
         int q[10], u, front = 0, rear = -1;
-        printf("\n Enter the source vertex: ");
+        printf("\n Source vertex to start : ");
         scanf("%d", &source);
         q[++rear] = source;
         visited[source] = 1;
-        printf("\nThe reachable vertices are: ");
+        printf("\nReachable vertices are : ");
         while (front <= rear)
         {
                 u = q[front++];
@@ -35,7 +35,7 @@ void bfs()
                         {
                                 q[++rear] = i;
                                 visited[i] = 1;
-                                printf("\n%d", i);
+                                printf("\t%d", i);
                         }
                 }
         }
@@ -47,8 +47,12 @@ void dfs(int i)
         printf("\t %d", i);
         vis[i] = 1;
         for (j = 1; j <= n; j++)
+        {
                 if (a[i][j] == 1 && vis[j] == 0)
+                {
                         dfs(j);
+                }
+        }
 }
 
 void main()
@@ -58,7 +62,7 @@ void main()
         while (1)
         {
                 printf("\n1.BFS\n2.DFS\n3.Exit\n");
-                printf("\nEnter your choice: ");
+                printf("\nYour choice : ");
                 scanf("%d", &ch);
                 switch (ch)
                 {
@@ -66,12 +70,15 @@ void main()
                         bfs();
                         break;
                 case 2:
-                        printf("\n Enter the source vertex: ");
+                        printf("\n Source vertex to start : ");
                         scanf("%d", &source);
                         dfs(source);
                         break;
-                default:
+                case 3:
                         exit(0);
+                default:
+                        printf("\n Invalid Choice !! \n ");
+                        break;
                 }
         }
 }

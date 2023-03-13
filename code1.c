@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int key[20], n, m;
-int *ht, ind;
-int count = 0;
+int n, m, i, key[20];
+int *ht, count = 0, ind;
 
 void insert(int key)
 {
@@ -18,39 +16,41 @@ void insert(int key)
 
 void display()
 {
-    int i;
     if (count == 0)
     {
-        printf("\nHash Table is empty!!\n");
+        printf("Empty Table!! \n");
         return;
     }
-    printf("\nHash Table contents are:\n ");
     for (i = 0; i < m; i++)
-        printf("\n T[%d] --> %d ", i, ht[i]);
+    {
+        printf("\n T[%d] -> %d", i, ht[i]);
+    }
 }
 
 int main()
 {
-    int i;
-    printf("\nNumber of elements (N) :   ");
+    printf("Number of Keys (n) : ");
     scanf("%d", &n);
-    printf("\nSize of Hash Table (m) :   ");
+    printf("Size of hash table (m) : ");
     scanf("%d", &m);
+    printf("Enter Key elements : \n");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &key[i]);
+    }
     ht = (int *)malloc(m * sizeof(int));
     for (i = 0; i < m; i++)
+    {
         ht[i] = -1;
-    printf("\nKey Values / Elements (key) : \n");
-    for (i = 0; i < n; i++)
-        scanf("%d", &key[i]);
+    }
     for (i = 0; i < n; i++)
     {
         if (count == m)
         {
-            printf("\nHash table is full.\n");
+            printf("Hash Table Fulll!!\n");
             break;
         }
         insert(key[i]);
     }
     display();
-    return 0;
 }
